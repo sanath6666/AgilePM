@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply min-h-dvh bg-ai-base font-sans text-ai-ink antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .ai-card {
+    @apply rounded-2xl border border-ai-line bg-ai-raised/90 shadow-ai-card shadow-ai-inset backdrop-blur-md;
+  }
+
+  .ai-panel {
+    @apply ai-card p-6 sm:p-8;
+  }
+
+  .ai-input {
+    @apply w-full min-h-[44px] rounded-xl border border-ai-line bg-ai-base/70 px-3 py-2.5 text-sm text-ai-ink placeholder:text-ai-subtle/80 focus:border-cyan-500/45 focus:outline-none focus:ring-2 focus:ring-cyan-500/20;
+  }
+
+  .ai-select {
+    @apply ai-input cursor-pointer;
+  }
+
+  .ai-label {
+    @apply mb-1.5 block text-sm font-medium text-ai-subtle;
+  }
+
+  .ai-btn-primary {
+    @apply inline-flex min-h-[44px] items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 to-violet-500 px-5 py-2.5 text-sm font-semibold text-white shadow-ai-glow transition duration-200 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ai-base disabled:cursor-not-allowed disabled:opacity-45;
+  }
+
+  .ai-btn-secondary {
+    @apply inline-flex min-h-[44px] items-center justify-center rounded-xl border border-ai-line bg-ai-raised/80 px-5 py-2.5 text-sm font-medium text-ai-ink transition duration-200 hover:border-cyan-500/35 hover:bg-ai-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/30;
+  }
+
+  .ai-btn-ghost {
+    @apply inline-flex min-h-[44px] items-center justify-center rounded-xl px-4 py-2 text-sm font-medium text-ai-subtle transition hover:bg-white/5 hover:text-ai-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/30;
+  }
+
+  .ai-page-title {
+    @apply text-2xl font-bold tracking-tight text-ai-ink md:text-3xl;
+  }
+
+  .ai-muted {
+    @apply text-sm text-ai-subtle;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
